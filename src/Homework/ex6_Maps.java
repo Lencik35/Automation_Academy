@@ -1,5 +1,8 @@
 package Homework;
 
+import javax.management.modelmbean.ModelMBean;
+import javax.swing.*;
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,10 +26,26 @@ public class ex6_Maps {
         for (Map.Entry<String, Product> entry : cosmeticShop.entrySet()) {
             String cosmeticName = entry.getKey();
             Product cosmetic = entry.getValue();
-            System.out.println(" Cosmetic name: " + cosmeticName + ", Price: $" + cosmetic.price());
+            System.out.println(" Cosmetic name: " + cosmeticName + ", Price: $" + cosmetic.getPrice());
         }
     }
 }
 
-record Product(String name, double price) {
+class Product {
+    private String name;
+    private double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+
+    }
 }
